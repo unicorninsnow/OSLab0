@@ -1,0 +1,287 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASFLAGS	Makefile	/^ASFLAGS = -m32 -MD$/;"	m
+BLUE_SCREEN_TEXT	src/lib/abort.c	14;"	d	file:
+CC	Makefile	/^CC = gcc$/;"	m
+CFILES	Makefile	/^CFILES = $(shell find src\/ -name "*.c")$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -m32 -static -MD -std=gnu89 -ggdb \\$/;"	m
+CHARACTER_PER_SECOND	src/game/game.c	7;"	d	file:
+DPL_KERNEL	include/x86/memory.h	4;"	d
+DPL_USER	include/x86/memory.h	5;"	d
+ELFHeader	boot/boot.h	/^struct ELFHeader {$/;"	s
+ELFHeader::ehsize	boot/boot.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::elf	boot/boot.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader	access:public
+ELFHeader::entry	boot/boot.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::flags	boot/boot.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::machine	boot/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::magic	boot/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::phnum	boot/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::shentsize	boot/boot.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::shnum	boot/boot.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::shoff	boot/boot.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::shstrndx	boot/boot.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::type	boot/boot.h	/^	unsigned short type;$/;"	m	struct:ELFHeader	access:public
+ELFHeader::version	boot/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader	access:public
+FALSE	include/const.h	5;"	d
+FPS	src/game/game.c	6;"	d	file:
+FREQ_8253	src/device/timer.c	7;"	d	file:
+GDT_ENTRY	boot/asm.h	2;"	d
+GateDescriptor	include/x86/memory.h	/^struct GateDescriptor {$/;"	s
+GateDescriptor::offset_15_0	include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::offset_31_16	include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::pad0	include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::privilege_level	include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::segment	include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor	access:public
+GateDescriptor::type	include/x86/memory.h	/^	uint32_t type             : 4;$/;"	m	struct:GateDescriptor	access:public
+HZ	include/device/timer.h	4;"	d
+INTERLACE	src/device/video.c	15;"	d	file:
+INTERRUPT_GATE_32	src/irq/idt.c	3;"	d	file:
+IRQ_SLAVE	src/irq/i8259.c	5;"	d	file:
+LD	Makefile	/^LD = ld$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS = -melf_i386$/;"	m
+LINKLIST_DEF	include/adt/linklist.h	27;"	d
+LINKLIST_DEF_FI	include/adt/linklist.h	31;"	d
+LINKLIST_IMPL	include/adt/linklist.h	43;"	d
+NR_IRQ	include/x86/cpu.h	34;"	d
+NR_SEGMENTS	include/x86/memory.h	7;"	d
+NULL	include/const.h	7;"	d
+OBJS	Makefile	/^OBJS = $(CFILES:.c=.o) $(SFILES:.S=.o)$/;"	m
+PARTIAL_UPDATE	src/device/video.c	14;"	d	file:
+PARTIAL_UPDATE	src/device/video.c	18;"	d	file:
+PORT_PIC_MASTER	src/irq/i8259.c	3;"	d	file:
+PORT_PIC_SLAVE	src/irq/i8259.c	4;"	d	file:
+ProgramHeader	boot/boot.h	/^struct ProgramHeader {$/;"	s
+ProgramHeader::align	boot/boot.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::filesz	boot/boot.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::flags	boot/boot.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::memsz	boot/boot.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::off	boot/boot.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::paddr	boot/boot.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::type	boot/boot.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader	access:public
+ProgramHeader::vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader	access:public
+QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
+SCR_HEIGHT	include/device/video.h	9;"	d
+SCR_SIZE	include/device/video.h	10;"	d
+SCR_WIDTH	include/device/video.h	8;"	d
+SECTSIZE	boot/main.c	11;"	d	file:
+SEG_ASM	boot/asm.h	9;"	d
+SEG_KERNEL_CODE	include/x86/memory.h	8;"	d
+SEG_KERNEL_DATA	include/x86/memory.h	9;"	d
+SEG_NULLASM	boot/asm.h	5;"	d
+SFILES	Makefile	/^SFILES = $(shell find src\/ -name "*.S")$/;"	m
+SLOW	src/device/video.c	11;"	d	file:
+TIMER_PORT	src/device/timer.c	6;"	d	file:
+TRAP_GATE_32	src/irq/idt.c	4;"	d	file:
+TRUE	include/const.h	4;"	d
+TrapFrame	include/x86/memory.h	/^struct TrapFrame {$/;"	s
+TrapFrame::eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::ebp	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::ebx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::ecx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::edi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::edx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::esi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::irq	include/x86/memory.h	/^	int32_t irq;$/;"	m	struct:TrapFrame	access:public
+TrapFrame::xxx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+UPDATE_PER_SECOND	src/game/game.c	8;"	d	file:
+VMEM_ADDR	include/device/video.h	11;"	d
+__ASSERT_H__	include/assert.h	2;"	d
+__COMMON_H__	include/common.h	2;"	d
+__CONST_H__	include/const.h	2;"	d
+__FONT_H__	include/device/font.h	2;"	d
+__GAME_H__	include/game.h	2;"	d
+__IRQ_H__	include/irq.h	2;"	d
+__LINKLIST_H__	include/adt/linklist.h	2;"	d
+__STRING_H__	include/string.h	2;"	d
+__TIMER_H__	include/device/timer.h	2;"	d
+__TYPES_H__	include/types.h	2;"	d
+__VIDEO_H__	include/device/video.h	2;"	d
+__X86_CPU_H__	include/x86/cpu.h	2;"	d
+__X86_IO_H__	include/x86/io.h	2;"	d
+__X86_MEMORY_H__	include/x86/memory.h	2;"	d
+__x86_H__	include/x86/x86.h	2;"	d
+abort	include/assert.h	/^int abort(const char *, int);$/;"	p	signature:(const char *, int)
+abort	src/lib/abort.c	/^abort(const char *fname, int line) {$/;"	f	signature:(const char *fname, int line)
+align	boot/boot.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader	access:public
+append	src/lib/abort.c	/^append(char **p, const char *str) {$/;"	f	file:	signature:(char **p, const char *str)
+asm_do_irq	src/irq/do_irq.S	/^asm_do_irq:$/;"	l
+assert	include/assert.h	7;"	d
+blue_screen	src/lib/abort.c	/^blue_screen(const char *file, int line) {$/;"	f	file:	signature:(const char *file, int line)
+bool	include/types.h	/^typedef int bool;$/;"	t
+bootmain	boot/main.c	/^bootmain(void) {$/;"	f	signature:(void)
+characters	include/game.h	/^fly_t characters(void);$/;"	p	signature:(void)
+characters	src/game/effect.c	/^characters(void) {$/;"	f	signature:(void)
+create_new_letter	include/game.h	/^void create_new_letter(void);$/;"	p	signature:(void)
+create_new_letter	src/game/effect.c	/^create_new_letter(void) {$/;"	f	signature:(void)
+disable_interrupt	include/x86/cpu.h	/^disable_interrupt(void) {$/;"	f	signature:(void)
+display_buffer	include/device/video.h	/^void display_buffer(void);$/;"	p	signature:(void)
+display_buffer	src/device/video.c	/^display_buffer(void) {$/;"	f	signature:(void)
+do_keyboard	src/irq/irq_handle.c	/^static void (*do_keyboard)(int);$/;"	v	file:
+do_timer	src/irq/irq_handle.c	/^static void (*do_timer)(void);$/;"	v	file:
+draw_character	src/device/video.c	/^draw_character(char ch, int x, int y, int color) {$/;"	f	file:	signature:(char ch, int x, int y, int color)
+draw_pixel	include/device/video.h	/^draw_pixel(int x, int y, int color) {$/;"	f	signature:(int x, int y, int color)
+draw_string	include/device/video.h	/^void draw_string(const char*, int, int, int);$/;"	p	signature:(const char*, int, int, int)
+draw_string	src/device/video.c	/^draw_string(const char *str, int x, int y, int color) {$/;"	f	signature:(const char *str, int x, int y, int color)
+eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+ebp	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+ebx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+ecx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+edi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+edx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+ehsize	boot/boot.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader	access:public
+elf	boot/boot.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader	access:public
+enable_interrupt	include/x86/cpu.h	/^enable_interrupt(void) {$/;"	f	signature:(void)
+entry	boot/boot.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader	access:public
+esi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+filesz	boot/boot.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader	access:public
+flags	boot/boot.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader	access:public
+flags	boot/boot.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader	access:public
+font8x8_basic	include/device/font.h	/^extern char font8x8_basic[128][8];$/;"	x
+font8x8_basic	src/device/font.c	/^char font8x8_basic[128][8] = {$/;"	v
+game_init	src/main.c	/^game_init(void) {$/;"	f	signature:(void)
+gdt	boot/start.S	/^gdt:$/;"	l
+gdtdesc	boot/start.S	/^gdtdesc:                           # GDT描述符$/;"	l
+get_fps	include/game.h	/^int get_fps(void);$/;"	p	signature:(void)
+get_fps	src/game/game.c	/^get_fps() {$/;"	f
+get_hit	include/game.h	/^int get_hit(void);$/;"	p	signature:(void)
+get_hit	src/game/effect.c	/^get_hit(void) {$/;"	f	signature:(void)
+get_miss	include/game.h	/^int get_miss(void);$/;"	p	signature:(void)
+get_miss	src/game/effect.c	/^get_miss(void) {$/;"	f	signature:(void)
+head	src/game/effect.c	/^static fly_t head = NULL;$/;"	v	file:
+hit	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
+idt	src/irq/idt.c	/^struct GateDescriptor idt[NR_IRQ];$/;"	v	typeref:struct:GateDescriptor
+in_byte	boot/boot.h	/^in_byte(short port) {$/;"	f	signature:(short port)
+in_byte	include/x86/io.h	/^in_byte(uint16_t port) {$/;"	f	signature:(uint16_t port)
+in_long	boot/boot.h	/^in_long(short port) {$/;"	f	signature:(short port)
+init_idt	include/irq.h	/^void init_idt(void);$/;"	p	signature:(void)
+init_idt	src/irq/idt.c	/^void init_idt() {$/;"	f
+init_intr	include/irq.h	/^void init_intr(void);$/;"	p	signature:(void)
+init_intr	src/irq/i8259.c	/^init_intr(void) {$/;"	f	signature:(void)
+init_timer	include/device/timer.h	/^void init_timer(void);$/;"	p	signature:(void)
+init_timer	src/device/timer.c	/^init_timer(void) {$/;"	f	signature:(void)
+int16_t	include/types.h	/^typedef          short int16_t;$/;"	t
+int32_t	include/types.h	/^typedef          int   int32_t;$/;"	t
+int8_t	include/types.h	/^typedef          char  int8_t;$/;"	t
+irq	include/x86/memory.h	/^	int32_t irq;$/;"	m	struct:TrapFrame	access:public
+irq0	src/irq/idt.c	/^void irq0();$/;"	p	file:
+irq1	src/irq/idt.c	/^void irq1();$/;"	p	file:
+irq_empty	src/irq/idt.c	/^void irq_empty();$/;"	p	file:
+irq_handle	src/irq/irq_handle.c	/^irq_handle(struct TrapFrame *tf) {$/;"	f	signature:(struct TrapFrame *tf)
+itoa	include/string.h	/^char *itoa(int);$/;"	p	signature:(int)
+itoa	src/lib/string.c	/^char *itoa(int a) {$/;"	f	signature:(int a)
+key_code	src/game/keyboard.c	/^static volatile int key_code = 0;$/;"	v	file:
+keyboard_event	include/game.h	/^void keyboard_event(int scan_code);$/;"	p	signature:(int scan_code)
+keyboard_event	src/game/keyboard.c	/^keyboard_event(int code) {$/;"	f	signature:(int code)
+last_key_code	include/game.h	/^int last_key_code(void);$/;"	p	signature:(void)
+last_key_code	src/game/keyboard.c	/^int last_key_code(void) {$/;"	f	signature:(void)
+letter_code	src/game/keyboard.c	/^static int letter_code[] = {$/;"	v	file:
+letter_pressed	src/game/keyboard.c	/^static bool letter_pressed[26];$/;"	v	file:
+machine	boot/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader	access:public
+magic	boot/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader	access:public
+main_loop	include/game.h	/^void main_loop(void);$/;"	p	signature:(void)
+main_loop	src/game/game.c	/^main_loop(void) {$/;"	f	signature:(void)
+memcpy	include/string.h	/^void memcpy(void *, const void *, size_t);$/;"	p	signature:(void *, const void *, size_t)
+memcpy	src/lib/string.c	/^void memcpy(void *dest, const void *src, size_t size) {$/;"	f	signature:(void *dest, const void *src, size_t size)
+memset	include/string.h	/^void memset(void *, int, size_t);$/;"	p	signature:(void *, int, size_t)
+memset	src/lib/string.c	/^void memset(void *dest, int data, size_t size) {$/;"	f	signature:(void *dest, int data, size_t size)
+memsz	boot/boot.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader	access:public
+miss	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
+off	boot/boot.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader	access:public
+offset_15_0	include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	m	struct:GateDescriptor	access:public
+offset_31_16	include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	m	struct:GateDescriptor	access:public
+out_byte	boot/boot.h	/^out_byte(short port, char data) {$/;"	f	signature:(short port, char data)
+out_byte	include/x86/io.h	/^out_byte(uint16_t port, int8_t data) {$/;"	f	signature:(uint16_t port, int8_t data)
+pad0	include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	m	struct:GateDescriptor	access:public
+paddr	boot/boot.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader	access:public
+phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader	access:public
+phnum	boot/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader	access:public
+phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader	access:public
+prepare_buffer	include/device/video.h	/^void prepare_buffer(void);$/;"	p	signature:(void)
+prepare_buffer	src/device/video.c	/^prepare_buffer(void) {$/;"	f	signature:(void)
+present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor	access:public
+press_key	include/game.h	/^void press_key(int scan_code);$/;"	p	signature:(int scan_code)
+press_key	src/game/keyboard.c	/^press_key(int scan_code) {$/;"	f	signature:(int scan_code)
+privilege_level	include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	m	struct:GateDescriptor	access:public
+query_key	include/game.h	/^bool query_key(int ch);$/;"	p	signature:(int ch)
+query_key	src/game/keyboard.c	/^query_key(int index) {$/;"	f	signature:(int index)
+rand	include/game.h	/^int rand(void);$/;"	p	signature:(void)
+rand	src/lib/random.c	/^rand(void) {$/;"	f	signature:(void)
+readsect	boot/main.c	/^readsect(void *dst, int offset) {$/;"	f	signature:(void *dst, int offset)
+readseg	boot/main.c	/^readseg(unsigned char *pa, int count, int offset) {$/;"	f	signature:(unsigned char *pa, int count, int offset)
+readseg	boot/main.c	/^void readseg(unsigned char *, int, int);$/;"	p	file:	signature:(unsigned char *, int, int)
+real_fps	src/game/game.c	/^static int real_fps;$/;"	v	file:
+redraw_screen	include/game.h	/^void redraw_screen(void);$/;"	p	signature:(void)
+redraw_screen	src/game/draw.c	/^redraw_screen() {$/;"	f
+release_key	include/game.h	/^void release_key(int ch);$/;"	p	signature:(int ch)
+release_key	src/game/keyboard.c	/^release_key(int index) {$/;"	f	signature:(int index)
+save_idt	include/x86/cpu.h	/^save_idt(void *addr, uint32_t size) {$/;"	f	signature:(void *addr, uint32_t size)
+seed	src/lib/random.c	/^static int seed = 0;$/;"	v	file:
+segment	include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	m	struct:GateDescriptor	access:public
+set_fps	include/game.h	/^void set_fps(int fps);$/;"	p	signature:(int fps)
+set_fps	src/game/game.c	/^set_fps(int value) {$/;"	f	signature:(int value)
+set_intr	src/irq/idt.c	/^set_intr(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	f	file:	signature:(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl)
+set_keyboard_intr_handler	include/irq.h	/^void set_keyboard_intr_handler( void (*ptr)(int) );$/;"	p	signature:( void (*ptr)(int) )
+set_keyboard_intr_handler	src/irq/irq_handle.c	/^set_keyboard_intr_handler( void (*ptr)(int) ) {$/;"	f	signature:( void (*ptr)(int) )
+set_timer_intr_handler	include/irq.h	/^void set_timer_intr_handler( void (*ptr)(void) );$/;"	p	signature:( void (*ptr)(void) )
+set_timer_intr_handler	src/irq/irq_handle.c	/^set_timer_intr_handler( void (*ptr)(void) ) {$/;"	f	signature:( void (*ptr)(void) )
+set_trap	src/irq/idt.c	/^set_trap(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	f	file:	signature:(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl)
+shentsize	boot/boot.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader	access:public
+shnum	boot/boot.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader	access:public
+shoff	boot/boot.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader	access:public
+shstrndx	boot/boot.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader	access:public
+size_t	include/types.h	/^typedef int32_t size_t;$/;"	t
+srand	include/game.h	/^void srand(int seed);$/;"	p	signature:(int seed)
+srand	src/lib/random.c	/^srand(int s) {$/;"	f	signature:(int s)
+start	boot/start.S	/^start:$/;"	l
+start32	boot/start.S	/^start32:$/;"	l
+strlen	include/string.h	/^size_t strlen(const char *);$/;"	p	signature:(const char *)
+strlen	src/lib/string.c	/^size_t strlen(const char *str) {$/;"	f	signature:(const char *str)
+system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor	access:public
+text	include/game.h	/^	int text;$/;"	v
+tick	src/game/game.c	/^volatile int tick = 0;$/;"	v
+timer_event	include/game.h	/^void timer_event(void);$/;"	p	signature:(void)
+timer_event	src/game/game.c	/^timer_event(void) {$/;"	f	signature:(void)
+type	boot/boot.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader	access:public
+type	boot/boot.h	/^	unsigned short type;$/;"	m	struct:ELFHeader	access:public
+type	include/x86/memory.h	/^	uint32_t type             : 4;$/;"	m	struct:GateDescriptor	access:public
+uint16_t	include/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	include/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint8_t	include/types.h	/^typedef unsigned char  uint8_t;$/;"	t
+update_keypress	include/game.h	/^bool update_keypress(void);$/;"	p	signature:(void)
+update_keypress	src/game/effect.c	/^update_keypress(void) {$/;"	f	signature:(void)
+update_letter_pos	include/game.h	/^void update_letter_pos(void);$/;"	p	signature:(void)
+update_letter_pos	src/game/effect.c	/^update_letter_pos(void) {$/;"	f	signature:(void)
+v	include/game.h	/^	float v;$/;"	v
+vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader	access:public
+vbuf	src/device/video.c	/^static uint8_t vbuf[SCR_SIZE];$/;"	v	file:
+vec0	src/irq/idt.c	/^void vec0();$/;"	p	file:
+vec1	src/irq/idt.c	/^void vec1();$/;"	p	file:
+vec10	src/irq/idt.c	/^void vec10();$/;"	p	file:
+vec11	src/irq/idt.c	/^void vec11();$/;"	p	file:
+vec12	src/irq/idt.c	/^void vec12();$/;"	p	file:
+vec13	src/irq/idt.c	/^void vec13();$/;"	p	file:
+vec2	src/irq/idt.c	/^void vec2();$/;"	p	file:
+vec3	src/irq/idt.c	/^void vec3();$/;"	p	file:
+vec4	src/irq/idt.c	/^void vec4();$/;"	p	file:
+vec5	src/irq/idt.c	/^void vec5();$/;"	p	file:
+vec6	src/irq/idt.c	/^void vec6();$/;"	p	file:
+vec7	src/irq/idt.c	/^void vec7();$/;"	p	file:
+vec8	src/irq/idt.c	/^void vec8();$/;"	p	file:
+vec9	src/irq/idt.c	/^void vec9();$/;"	p	file:
+version	boot/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader	access:public
+vmem	include/device/video.h	/^extern uint8_t *vmem;$/;"	x
+vmem	src/device/video.c	/^uint8_t *vmem = VMEM_ADDR;$/;"	v
+vref	src/device/video.c	/^static uint8_t vref[SCR_SIZE];$/;"	v	file:
+wait_for_interrupt	include/x86/cpu.h	/^wait_for_interrupt() {$/;"	f	signature:()
+waitdisk	boot/main.c	/^waitdisk(void) {$/;"	f	signature:(void)
+x	include/game.h	/^	float x, y;$/;"	v
+xxx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame	access:public
+y	include/game.h	/^	float x, y;$/;"	v
