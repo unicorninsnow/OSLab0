@@ -1,13 +1,22 @@
 #include "common.h"
 #include "string.h"
 
-/* a-z对应的键盘扫描码 */
-static int letter_code[] = {
+///* a-z对应的键盘扫描码 */
+/*static int letter_code[] = {
 	30, 48, 46, 32, 18, 33, 34, 35, 23, 36,
+	37, 38, 50, 49, 24, 25, 16, 19, 31, 20,
+	22, 47, 17, 45, 21, 44
+};*/
+
+/* a-z对应的键盘扫描码 */
+//将前四个换成上下左右 分别是72,80,75,77
+static int letter_code[] = {
+	72, 80, 75, 77, 18, 33, 34, 35, 23, 36,
 	37, 38, 50, 49, 24, 25, 16, 19, 31, 20,
 	22, 47, 17, 45, 21, 44
 };
 /* 对应键按下的标志位 */
+
 static bool letter_pressed[26];
 
 void
@@ -39,8 +48,9 @@ int last_key_code(void) {
 	return key_code;
 }
 
+/*对某个键盘扫描码的键盘活动：先保存该扫描码，然后记录按键是什么*/
 void
-keyboard_event(int code) {
+keyboard_event(int code) {  
 	key_code = code;
 	press_key(code);
 }

@@ -26,21 +26,50 @@ characters(void) {
 }
 
 /* 在屏幕上创建一个新的字母 */
-void
+/*void
 create_new_letter(void) {
+	if (head == NULL) {
+		head = fly_new(); // 当前没有任何字母，创建新链表 //
+	} else {
+		fly_t now = fly_new();
+		fly_insert(NULL, head, now); // 插入到链表的头部 //
+		head = now;
+	}
+	// 字母、初始位置、掉落速度均为随机设定 // 
+	head->x = 0;
+	head->y = rand() % (SCR_WIDTH / 8 - 2) * 8 + 8;
+	head->v = (rand() % 1000 / 1000.0 + 1) / 2.0;
+	head->text = rand() % 26;
+	release_key(head->text); // 清除过往的按键 //
+}*/
+
+/*在屏幕上创建一个新的子弹*/
+void
+create_new_bullet(void) {
 	if (head == NULL) {
 		head = fly_new(); /* 当前没有任何字母，创建新链表 */
 	} else {
 		fly_t now = fly_new();
 		fly_insert(NULL, head, now); /* 插入到链表的头部 */
 		head = now;
+        
 	}
+
+/*	if (head == NULL) {
+		head = bullet_new(); // 当前没有任何字母，创建新链表 //
+	} else {
+		bullet_t now = bullet_new();
+		bullet_insert(NULL, head, now); // 插入到链表的头部 //
+		head = now;
+        
+	}
+*/
 	/* 字母、初始位置、掉落速度均为随机设定 */
 	head->x = 0;
 	head->y = rand() % (SCR_WIDTH / 8 - 2) * 8 + 8;
 	head->v = (rand() % 1000 / 1000.0 + 1) / 2.0;
-	head->text = rand() % 26;
-	release_key(head->text); /* 清除过往的按键 */
+	head->text = 0;//rand() % 26;
+	release_key(head->text); /* 清除过往的按键 */ //为什么要清除？？？？？？
 }
 
 /* 逻辑时钟前进1单位 */

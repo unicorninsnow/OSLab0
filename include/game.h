@@ -21,11 +21,23 @@ LINKLIST_DEF(fly)
 	float v;
 LINKLIST_DEF_FI(fly)
 
+/* 定义bullet子弹链表 */    //为什么要_t
+LINKLIST_DEF(bullet)
+	float x, y; //用于生成每个子弹的初始位置 和 表示所在的当前位置
+	//int text;
+    float x_p, y_p; //用于表示生成新子弹时飞机所在的位置，用于确定子弹的方向
+	float v;
+LINKLIST_DEF_FI(bullet)
+
+
+
 /* 主循环 */
 void main_loop(void);
 
 /* 游戏逻辑相关 */
-void create_new_letter(void);
+//void create_new_letter(void);
+void create_new_bullet(void);
+
 void update_letter_pos(void);
 bool update_keypress(void);
 
