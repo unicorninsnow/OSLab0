@@ -10,7 +10,8 @@
 */
 void
 redraw_screen() {
-	fly_t it;
+	//fly_t it;
+    bullet_t it;
 	const char *hit, *miss;
 	
 	prepare_buffer(); /* 准备缓冲区 */

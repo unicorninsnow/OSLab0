@@ -67,11 +67,12 @@ main_loop(void) {
 			/* 每隔一定时间产生一个新的字符 */
 			if (now % (HZ / CHARACTER_PER_SECOND) == 0) {
 				//create_new_letter();
-                create_new_bullet();
+                create_new_bullet(70,70);
 			} 
 			/* 每隔一定时间更新屏幕上字符的位置 */
 			if (now % (HZ / UPDATE_PER_SECOND) == 0) {
-				update_letter_pos();
+				//update_letter_pos();
+                update_bullet_pos();
 			}
 			/* 每隔一定时间需要刷新屏幕。注意到这里实现了“跳帧”的机制：假设
 			 *   HZ = 1000, FPS = 100, now = 10, target = 1000

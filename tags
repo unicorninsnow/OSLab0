@@ -77,14 +77,14 @@ blue_screen	src/lib/abort.c	/^blue_screen(const char *file, int line) {$/;"	f	fi
 bool	include/types.h	/^typedef int bool;$/;"	t
 bootmain	boot/main.c	/^bootmain(void) {$/;"	f
 characters	src/game/effect.c	/^characters(void) {$/;"	f
-create_new_bullet	src/game/effect.c	/^create_new_bullet(void) {$/;"	f
+create_new_bullet	src/game/effect.c	/^create_new_bullet(int x_p, int y_p) {$/;"	f
 disable_interrupt	include/x86/cpu.h	/^disable_interrupt(void) {$/;"	f
 display_buffer	src/device/video.c	/^display_buffer(void) {$/;"	f
 do_keyboard	src/irq/irq_handle.c	/^static void (*do_keyboard)(int);$/;"	v	file:
 do_timer	src/irq/irq_handle.c	/^static void (*do_timer)(void);$/;"	v	file:
 draw_bullets	src/device/video.c	/^draw_bullets(const char *str, int x, int y, int color) {$/;"	f
 draw_character	src/device/video.c	/^draw_character(char ch, int x, int y, int color) {$/;"	f	file:
-draw_one_bullet	src/device/video.c	/^draw_one_bullet(int x, int y, int color) {$/;"	f	file:
+draw_one_bullet	src/device/video.c	/^draw_one_bullet(int x, int y, int color) {$/;"	f
 draw_pixel	include/device/video.h	/^draw_pixel(int x, int y, int color) {$/;"	f
 draw_string	src/device/video.c	/^draw_string(const char *str, int x, int y, int color) {$/;"	f
 eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
@@ -108,7 +108,7 @@ gdtdesc	boot/start.S	/^gdtdesc:                           # GDT描述符$/;"	l
 get_fps	src/game/game.c	/^get_fps() {$/;"	f
 get_hit	src/game/effect.c	/^get_hit(void) {$/;"	f
 get_miss	src/game/effect.c	/^get_miss(void) {$/;"	f
-head	src/game/effect.c	/^static fly_t head = NULL;$/;"	v	file:
+head	src/game/effect.c	/^static bullet_t head = NULL;$/;"	v	file:
 hit	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
 idt	src/irq/idt.c	/^struct GateDescriptor idt[NR_IRQ];$/;"	v	typeref:struct:GateDescriptor
 in_byte	boot/boot.h	/^in_byte(short port) {$/;"	f
