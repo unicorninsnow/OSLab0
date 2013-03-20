@@ -16,11 +16,21 @@ redraw_screen() {
 	prepare_buffer(); /* 准备缓冲区 */
 
 	/* 绘制每个字符 */
-	for (it = characters(); it != NULL; it = it->_next) {
+	/*for (it = characters(); it != NULL; it = it->_next) {
 		static char buf[2];
 		buf[0] = it->text + 'A'; buf[1] = 0;
-		draw_string(buf, it->x, it->y, 15);
+		draw_string(buf, it->x, it->y, 12);
+	}*/
+    
+	/* 绘制每个子弹 */
+	for (it = characters(); it != NULL; it = it->_next) {
+		//static char buf[2];
+		//buf[0] = it->text + 'A'; buf[1] = 0;
+		//draw_string(buf, it->x, it->y, 12);
+        draw_one_bullet( it->x, it->y, 12);
 	}
+
+
 
 	/* 绘制命中数、miss数、最后一次按键扫描码和fps */
 	draw_string(itoa(last_key_code()), SCR_HEIGHT - 8, 0, 48);

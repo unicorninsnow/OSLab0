@@ -82,7 +82,9 @@ disable_interrupt	include/x86/cpu.h	/^disable_interrupt(void) {$/;"	f
 display_buffer	src/device/video.c	/^display_buffer(void) {$/;"	f
 do_keyboard	src/irq/irq_handle.c	/^static void (*do_keyboard)(int);$/;"	v	file:
 do_timer	src/irq/irq_handle.c	/^static void (*do_timer)(void);$/;"	v	file:
+draw_bullets	src/device/video.c	/^draw_bullets(const char *str, int x, int y, int color) {$/;"	f
 draw_character	src/device/video.c	/^draw_character(char ch, int x, int y, int color) {$/;"	f	file:
+draw_one_bullet	src/device/video.c	/^draw_one_bullet(int x, int y, int color) {$/;"	f	file:
 draw_pixel	include/device/video.h	/^draw_pixel(int x, int y, int color) {$/;"	f
 draw_string	src/device/video.c	/^draw_string(const char *str, int x, int y, int color) {$/;"	f
 eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame

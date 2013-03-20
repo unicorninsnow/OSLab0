@@ -86,3 +86,26 @@ draw_string(const char *str, int x, int y, int color) {
 	}
 }
 
+
+/*static inline*/ void
+draw_one_bullet(int x, int y, int color) {
+	int i, j;
+	//assert((ch & 0x80) == 0);
+	//char *p = font8x8_basic[(int)ch];
+	for (i = 0; i < 3; i ++) 
+		for (j = 0; j < 3; j ++) 
+			//if ((p[i] >> j) & 1)
+				draw_pixel(x + i, y + j, color);
+}
+
+void
+draw_bullets(const char *str, int x, int y, int color) {
+	while (*str) {
+		draw_one_bullet( x, y, color);
+		if (y + 3 >= SCR_WIDTH) {
+			x += 3; y = 0;
+		} else {
+			y += 3;
+		}
+	}
+}

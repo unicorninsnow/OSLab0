@@ -23,4 +23,7 @@ void display_buffer(void);
 
 void draw_string(const char*, int, int, int);
 
+void draw_bullets(const char*, int, int, int);
+void draw_one_bullet(int, int, int);
+
 #endif
