@@ -4,7 +4,7 @@
 #include "common.h"
 #include "adt/linklist.h"
 
-//#typedef (Plane_struct *) Plane;
+//static int bullet_num;
 
 /* 中断时调用的函数 */
 void timer_event(void);
@@ -57,14 +57,18 @@ void create_new_bullet(int x_p, int y_p);
 //void update_letter_pos(void);
 void update_bullet_pos(void);
 bool update_keypress(void);
+void update_plane_pos(void);
 
 int get_hit(void);
 int get_miss(void);
+int get_bullet_num(void);
 int get_fps(void);
 void set_fps(int fps);
 //fly_t characters(void);
 bullet_t characters(void);
 struct Plane_struct get_plane(void);
+int get_plane_x(void);
+int get_plane_y(void);
 
 
 void redraw_screen(void);

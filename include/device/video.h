@@ -7,6 +7,10 @@
 
 #define SCR_WIDTH  320
 #define SCR_HEIGHT 200
+#define WIDTH_BULLET ((SCR_WIDTH) - (bullet_size))
+#define HEIGHT_BULLET ((SCR_HEIGHT) - (bullet_size))
+#define WIDTH_PLANE ((SCR_WIDTH) - (plane_size))
+#define HEIGHT_PLANE ((SCR_HEIGHT) - (plane_size))
 #define SCR_SIZE ((SCR_WIDTH) * (SCR_HEIGHT))
 #define VMEM_ADDR  ((uint8_t*)0xA0000)
 #define bullet_size 2

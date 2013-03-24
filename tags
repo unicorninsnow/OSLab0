@@ -18,6 +18,8 @@ FPS	src/game/game.c	6;"	d	file:
 FREQ_8253	src/device/timer.c	7;"	d	file:
 GDT_ENTRY	boot/asm.h	2;"	d
 GateDescriptor	include/x86/memory.h	/^struct GateDescriptor {$/;"	s
+HEIGHT_BULLET	include/device/video.h	11;"	d
+HEIGHT_PLANE	include/device/video.h	13;"	d
 HZ	include/device/timer.h	4;"	d
 INTERLACE	src/device/video.c	15;"	d	file:
 INTERRUPT_GATE_32	src/irq/idt.c	3;"	d	file:
@@ -39,7 +41,7 @@ Plane_struct	include/game.h	/^struct Plane_struct{$/;"	s
 ProgramHeader	boot/boot.h	/^struct ProgramHeader {$/;"	s
 QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
 SCR_HEIGHT	include/device/video.h	9;"	d
-SCR_SIZE	include/device/video.h	10;"	d
+SCR_SIZE	include/device/video.h	14;"	d
 SCR_WIDTH	include/device/video.h	8;"	d
 SECTSIZE	boot/main.c	11;"	d	file:
 SEG_ASM	boot/asm.h	9;"	d
@@ -53,7 +55,9 @@ TRAP_GATE_32	src/irq/idt.c	4;"	d	file:
 TRUE	include/const.h	4;"	d
 TrapFrame	include/x86/memory.h	/^struct TrapFrame {$/;"	s
 UPDATE_PER_SECOND	src/game/game.c	8;"	d	file:
-VMEM_ADDR	include/device/video.h	11;"	d
+VMEM_ADDR	include/device/video.h	15;"	d
+WIDTH_BULLET	include/device/video.h	10;"	d
+WIDTH_PLANE	include/device/video.h	12;"	d
 __ASSERT_H__	include/assert.h	2;"	d
 __COMMON_H__	include/common.h	2;"	d
 __CONST_H__	include/const.h	2;"	d
@@ -77,10 +81,13 @@ assert	include/assert.h	7;"	d
 blue_screen	src/lib/abort.c	/^blue_screen(const char *file, int line) {$/;"	f	file:
 bool	include/types.h	/^typedef int bool;$/;"	t
 bootmain	boot/main.c	/^bootmain(void) {$/;"	f
-bullet_size	include/device/video.h	12;"	d
+bullet_num	src/game/effect.c	/^static int bullet_num = 0;$/;"	v	file:
+bullet_size	include/device/video.h	16;"	d
 characters	src/game/effect.c	/^characters(void) {$/;"	f
 create_new_bullet	src/game/effect.c	/^create_new_bullet(int x_p, int y_p) {$/;"	f
 create_plane	src/game/effect.c	/^create_plane(void){$/;"	f
+direct_key_code	src/game/keyboard.c	/^static int direct_key_code[] = {$/;"	v	file:
+direct_key_pressed	src/game/keyboard.c	/^static bool direct_key_pressed[4];$/;"	v	file:
 disable_interrupt	include/x86/cpu.h	/^disable_interrupt(void) {$/;"	f
 display_buffer	src/device/video.c	/^display_buffer(void) {$/;"	f
 do_keyboard	src/irq/irq_handle.c	/^static void (*do_keyboard)(int);$/;"	v	file:
@@ -109,10 +116,13 @@ font8x8_basic	src/device/font.c	/^char font8x8_basic[128][8] = {$/;"	v
 game_init	src/main.c	/^game_init(void) {$/;"	f
 gdt	boot/start.S	/^gdt:$/;"	l
 gdtdesc	boot/start.S	/^gdtdesc:                           # GDT描述符$/;"	l
+get_bullet_num	src/game/effect.c	/^get_bullet_num(void) {$/;"	f
 get_fps	src/game/game.c	/^get_fps() {$/;"	f
 get_hit	src/game/effect.c	/^get_hit(void) {$/;"	f
 get_miss	src/game/effect.c	/^get_miss(void) {$/;"	f
 get_plane	src/game/effect.c	/^get_plane(void){$/;"	f
+get_plane_x	src/game/effect.c	/^int get_plane_x(void){$/;"	f
+get_plane_y	src/game/effect.c	/^int get_plane_y(void){$/;"	f
 head	src/game/effect.c	/^static bullet_t head = NULL;$/;"	v	file:
 hit	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
 idt	src/irq/idt.c	/^struct GateDescriptor idt[NR_IRQ];$/;"	v	typeref:struct:GateDescriptor
@@ -131,8 +141,6 @@ itoa	src/lib/string.c	/^char *itoa(int a) {$/;"	f
 key_code	src/game/keyboard.c	/^static volatile int key_code = 0;$/;"	v	file:
 keyboard_event	src/game/keyboard.c	/^keyboard_event(int code) {  $/;"	f
 last_key_code	src/game/keyboard.c	/^int last_key_code(void) {$/;"	f
-letter_code	src/game/keyboard.c	/^static int letter_code[] = {$/;"	v	file:
-letter_pressed	src/game/keyboard.c	/^static bool letter_pressed[26];$/;"	v	file:
 machine	boot/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
 magic	boot/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
 main_loop	src/game/game.c	/^main_loop(void) {$/;"	f
@@ -150,10 +158,9 @@ paddr	boot/boot.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader
 phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
 phnum	boot/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
 phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
-plane	src/game/effect.c	/^static Plane_t plane = NULL;$/;"	v	file:
-plane5x5_basic	src/device/font.c	/^char plane5x5_basic[plane_size] = {0x08,0x0E,0x1F,0x08,0x0E};$/;"	v
+plane	src/game/effect.c	/^static struct Plane_struct plane;$/;"	v	typeref:struct:Plane_struct	file:
+plane5x5_basic	src/device/font.c	/^char plane5x5_basic[plane_size] = {0x10,0x38,0x7C,0x82,0x10,0x10,0x10,0x38};$/;"	v
 plane_size	include/device/font.h	3;"	d
-plane_size	src/device/font.c	24;"	d	file:
 prepare_buffer	src/device/video.c	/^prepare_buffer(void) {$/;"	f
 present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor
 press_key	src/game/keyboard.c	/^press_key(int scan_code) {$/;"	f
@@ -193,7 +200,7 @@ uint16_t	include/types.h	/^typedef unsigned short uint16_t;$/;"	t
 uint32_t	include/types.h	/^typedef unsigned int   uint32_t;$/;"	t
 uint8_t	include/types.h	/^typedef unsigned char  uint8_t;$/;"	t
 update_bullet_pos	src/game/effect.c	/^update_bullet_pos(void) {$/;"	f
-update_keypress	src/game/effect.c	/^update_keypress(void) {$/;"	f
+update_plane_pos	src/game/effect.c	/^update_plane_pos(void) {$/;"	f
 v	include/game.h	/^	float v;$/;"	v
 v	include/game.h	/^    float v;$/;"	m	struct:Plane_struct
 vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader

@@ -3,4 +3,4 @@ src/game/effect.o: src/game/effect.c include/game.h include/common.h \
  include/assert.h include/common.h include/string.h \
  include/adt/linklist.h include/device/video.h include/types.h \
  include/const.h include/x86/x86.h include/x86/cpu.h include/x86/memory.h \
- include/x86/io.h
+ include/x86/io.h include/device/font.h
