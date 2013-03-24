@@ -24,6 +24,7 @@ HZ	include/device/timer.h	4;"	d
 INTERLACE	src/device/video.c	15;"	d	file:
 INTERRUPT_GATE_32	src/irq/idt.c	3;"	d	file:
 IRQ_SLAVE	src/irq/i8259.c	5;"	d	file:
+Is_hit	src/game/effect.c	/^Is_hit(void) {$/;"	f
 LD	Makefile	/^LD = ld$/;"	m
 LDFLAGS	Makefile	/^LDFLAGS = -melf_i386$/;"	m
 LINKLIST_DEF	include/adt/linklist.h	27;"	d
@@ -123,6 +124,7 @@ get_miss	src/game/effect.c	/^get_miss(void) {$/;"	f
 get_plane	src/game/effect.c	/^get_plane(void){$/;"	f
 get_plane_x	src/game/effect.c	/^int get_plane_x(void){$/;"	f
 get_plane_y	src/game/effect.c	/^int get_plane_y(void){$/;"	f
+get_tick	src/game/game.c	/^get_tick(void){$/;"	f
 head	src/game/effect.c	/^static bullet_t head = NULL;$/;"	v	file:
 hit	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
 idt	src/irq/idt.c	/^struct GateDescriptor idt[NR_IRQ];$/;"	v	typeref:struct:GateDescriptor
@@ -188,6 +190,7 @@ size_t	include/types.h	/^typedef int32_t size_t;$/;"	t
 srand	src/lib/random.c	/^srand(int s) {$/;"	f
 start	boot/start.S	/^start:$/;"	l
 start32	boot/start.S	/^start32:$/;"	l
+strcat	src/lib/string.c	/^char *strcat(char *str1, char *str2) {$/;"	f
 strlen	src/lib/string.c	/^size_t strlen(const char *str) {$/;"	f
 system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor
 text	include/game.h	/^	int text;$/;"	v

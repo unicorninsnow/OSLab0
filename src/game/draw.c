@@ -13,7 +13,9 @@ redraw_screen() {
 	//fly_t it;
     bullet_t it;
 	const char *hit;
-    const char *bullet_num;
+//  const char *bullet_num;
+    const char *sec_int;
+    const char *sec_fra;
 	
 	prepare_buffer(); /* 准备缓冲区 */
 
@@ -32,22 +34,25 @@ redraw_screen() {
     
 	/* 绘制每个子弹 */
 	for (it = characters(); it != NULL; it = it->_next) {
-		//static char buf[2];
-		//buf[0] = it->text + 'A'; buf[1] = 0;
-		//draw_string(buf, it->x, it->y, 12);
         draw_one_bullet( it->x, it->y, 12);
 	}
-
        
 
-	/* 绘制命中数、miss数、最后一次按键扫描码和fps */
+	/* 绘制被击中数、坚持的时间、最后一次按键扫描码和fps */
 	draw_string(itoa(last_key_code()), SCR_HEIGHT - 8, 0, 48);
 	hit = itoa(get_hit());
 	draw_string(hit, 0, SCR_WIDTH - strlen(hit) * 8, 10);
-    bullet_num = itoa(get_bullet_num()); 
-    draw_string(bullet_num, SCR_HEIGHT - 8, SCR_WIDTH - strlen(bullet_num) * 8, 10);
 
-	draw_string(itoa(get_fps()), 0, 0, 14);
+    //bullet_num = itoa(get_bullet_num()); 
+    //draw_string(bullet_num, SCR_HEIGHT - 8, SCR_WIDTH - strlen(bullet_num) * 8, 10);
+
+    sec_fra = itoa(get_tick() % 1000);
+    draw_string(sec_fra, SCR_HEIGHT - 8, SCR_WIDTH - strlen(sec_fra) * 8, 10);
+    sec_int = itoa(get_tick()/1000); 
+    draw_string(".", SCR_HEIGHT - 8, SCR_WIDTH - strlen(sec_fra) * 8 - 8, 10);
+    draw_string(sec_int, SCR_HEIGHT - 8, SCR_WIDTH - strlen(sec_fra) * 8 - strlen(sec_int) * 8 - 8, 10);
+	
+    draw_string(itoa(get_fps()), 0, 0, 14);
 	draw_string("FPS", 0, strlen(itoa(get_fps())) * 8, 14);
 
 	display_buffer(); /* 绘制缓冲区 */

@@ -42,7 +42,6 @@ characters(void) {
     return head;
 }
 
-//Plane_struct *
 struct Plane_struct
 get_plane(void){
     return plane;
@@ -88,15 +87,6 @@ create_new_letter(void) {
 /*在屏幕上创建一个新的子弹*/
 void
 create_new_bullet(int x_p, int y_p) {
-/*	if (head == NULL) {
-		head = fly_new(); // 当前没有任何字母，创建新链表 //
-	} else {
-		fly_t now = fly_new();
-		fly_insert(NULL, head, now); // 插入到链表的头部 //
-		head = now;
-        
-	}
-*/
 	if (head == NULL) {
 		head = bullet_new(); // 当前没有任何子弹，创建新链表 //
 	    bullet_num = 1;
@@ -106,14 +96,6 @@ create_new_bullet(int x_p, int y_p) {
 		head = now;
         bullet_num++;
 	}
-
-	/* 字母、初始位置、掉落速度均为随机设定 */
-/*	head->x = 0;
-	head->y = rand() % (WIDTH_BULLET / 8 - 2) * 8 + 8;
-	head->v = (rand() % 1000 / 1000.0 + 1) / 2.0;
-	head->text = rand() % 26;
-	release_key(head->text); // 清除过往的按键 // //为什么要清除？？？？？？
-  */  
 
     head->x_p = x_p;
     head->y_p = y_p;
@@ -147,7 +129,7 @@ create_new_bullet(int x_p, int y_p) {
 	//head->x = 0;
 	//head->y = rand() % (WIDTH_BULLET / 8 - 2) * 8 + 8;
 	head->v = (rand() % 1000 / 1000.0 + 1) / 2.0;
-    head->text = 0;//rand() % 26;
+    head->text = 0;//rand() % 26;   //需不需要？？？？？
 	//release_key(head->text); // 清除过往的按键 // //为什么要清除？？？？？？
 
     
@@ -181,9 +163,6 @@ update_bullet_pos(void) {
         it->x += it->vx;
         it->y += it->vy;
 		if (it->x < 0 || it->x > HEIGHT_BULLET || it->y < 0 || it->y > WIDTH_BULLET) {
-        
-	//		if (it->x < 0) hit ++; // 从上部飞出屏幕 //
-	//		else miss ++; // 从下部飞出屏幕 //
 			bullet_remove(it);
 			bullet_free(it);
             if(bullet_num > 0) --bullet_num;
@@ -218,34 +197,34 @@ update_keypress(void) {
 
 	return FALSE;
 }*/
-/*
-bool
-update_keypress(void) {
-	bullet_t it, target = NULL;
-	float min = -100;
 
-	disable_interrupt();
+//void
+bool
+Is_hit(void) {
+	bullet_t it;
+
+	//disable_interrupt();
 	// 寻找相应键已被按下、最底部且未被击中的字符 //
 	for (it = head; it != NULL; it = it->_next) {
-		assert(it->text >= 0 && it->text < 26);
-		if (it->v > 0 && it->x > min && query_key(it->text)) {
-			min = it->x;
-			target = it;
+		if (((it->x + bullet_size) > get_plane_x()) && (it->x < get_plane_x() + plane_size)
+                && ((it->y + bullet_size) > get_plane_y()) && (it->y < get_plane_y() + plane_size)) {
+			++hit;
+            assert(hit < 10);
+		    bullet_t next = it->_next;
+            bullet_remove(it);
+			bullet_free(it);
+            if(bullet_num > 0) --bullet_num;
+			if (it == head) head = next; // 更新链表 //
+           // break;
+            return TRUE;
 		}
 	}
-	// 如果找到则更新相应数据 //
-	if (target != NULL) {
-		release_key(target->text);
-		target->v = -3; // 速度改为向上 //
-        target->vx = -3;
-        target->vy = 0;
-		return TRUE;
-	}
-	enable_interrupt();
+  //  enable_interrupt();
 
 	return FALSE;
+    //return; 
 }
-*/
+
 void
 update_plane_pos(void) {
 	disable_interrupt();
@@ -260,15 +239,6 @@ update_plane_pos(void) {
         if((is_in_area_left) && query_key(2))    plane.y -= plane.v; //left
         if((is_in_area_right) && query_key(3))    plane.y += plane.v; //right
 
-/*
-	// 如果找到则更新相应数据 //
-	if (target != NULL) {
-		release_key(target->text);
-		target->v = -3; // 速度改为向上 //
-        target->vx = -3;
-        target->vy = 0;
-		return TRUE;
-	}*/
 	enable_interrupt();
 
 	return;

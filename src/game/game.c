@@ -4,7 +4,7 @@
 #include "device/timer.h"
 
 #define FPS 30
-#define CHARACTER_PER_SECOND 8
+#define CHARACTER_PER_SECOND 5
 #define UPDATE_PER_SECOND 100
 
 volatile int tick = 0;
@@ -22,6 +22,10 @@ set_fps(int value) {
 int
 get_fps() {
 	return real_fps;
+}
+int
+get_tick(void){
+    return tick;
 }
 
 /* 游戏主循环。
@@ -59,7 +63,7 @@ main_loop(void) {
 		enable_interrupt();
 
 		redraw = FALSE;
-//		while (update_keypress())//这里是什么意思？？？？？？？？？？？？？？？
+//		while (Is_hit())//这里是什么意思？？？？？？？？？？？？？？？
 //			;
 
 		/* 依次模拟已经错过的时钟中断。一次主循环如果执行时间长，期间可能到来多次时钟中断，
@@ -76,6 +80,7 @@ main_loop(void) {
 				//update_letter_pos();
                 update_bullet_pos();
                 update_plane_pos();
+                Is_hit();
 			}
 			/* 每隔一定时间需要刷新屏幕。注意到这里实现了“跳帧”的机制：假设
 			 *   HZ = 1000, FPS = 100, now = 10, target = 1000

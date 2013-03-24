@@ -28,3 +28,22 @@ size_t strlen(const char *str) {
 	while (*str ++) len ++;
 	return len;
 }
+
+char *strcat(const char *str1, const char *str2) {
+    //有问题  不知道如何解决
+    //int l1 = strlen(str1);
+    //int l2 = strlen(str2);
+    //assert (l1 < 5);
+    //assert (l2 < 5);
+    static char buf[10];
+    //char *p = buf;// + sizeof(buf);
+    char *p = buf;
+    int i = 0, j = 0;
+    //for(i = 0; i < l1; i++)  *p++ = str1[i];
+    while(((*p++ = str1[i]) != '\0') && (i < 3)) i++;
+    while(((*p++ = str2[j]) != '\0') && (j < 5)){i++; j++;}
+    //for(i = 0; i < l2; i++)  *p++ = str2[i];
+    *p = '\0';
+    return buf;//(p - (l1 * sizeof(char)) - (l2 * sizeof(char)));
+}
+

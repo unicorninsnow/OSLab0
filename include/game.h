@@ -34,14 +34,9 @@ LINKLIST_DEF_FI(bullet)
 
 /* 定义plane结构 */
 struct Plane_struct{
-    float x, y;
-    float v;
+    float x, y;//用于生成飞机的初始位置 和 表示所在的当前位置
+    float v;//表示飞机的速度 tip：表示上下左右速度 斜向速度为叠加后的
 };
-/*LINKLIST_DEF(Plane)
-    float x, y; //用于生成每个子弹的初始位置 和 表示所在的当前位置
-    float v;
-LINKLIST_DEF_FI(Plane)
-*/
 
 
 
@@ -56,13 +51,15 @@ void create_new_bullet(int x_p, int y_p);
 
 //void update_letter_pos(void);
 void update_bullet_pos(void);
-bool update_keypress(void);
+//bool update_keypress(void);
 void update_plane_pos(void);
+bool Is_hit(void);
 
 int get_hit(void);
 int get_miss(void);
 int get_bullet_num(void);
 int get_fps(void);
+int get_tick(void);
 void set_fps(int fps);
 //fly_t characters(void);
 bullet_t characters(void);

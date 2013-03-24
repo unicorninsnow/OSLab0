@@ -18,7 +18,7 @@
 
 /* 上下左右对应的键盘扫描码 */
 static int direct_key_code[] = {
-    72,80,75,77,200,208,203,205
+    72,80,75,77,200,208,203,205,17,31,30,32,145,159,158,160
 };
 
 
@@ -49,6 +49,18 @@ press_key(int scan_code) {
 			direct_key_pressed[i - 4] = FALSE;
 		}
     }
+    for (i = 8; i < 12; i++){
+        if (direct_key_code[i] == scan_code) {
+			direct_key_pressed[i - 8] = TRUE;
+		}
+    }
+    for (i = 12; i < 16; i++){
+        if (direct_key_code[i] == scan_code) {
+			direct_key_pressed[i - 12] = FALSE;
+		}
+    }
+
+
 }
 
 
