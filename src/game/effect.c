@@ -10,6 +10,8 @@ LINKLIST_IMPL(bullet, 10000)
 
 //static fly_t head = NULL;
 static bullet_t head = NULL;
+static struct Plane_struct plane;
+
 
 static int hit = 0, miss = 0;
 
@@ -32,6 +34,22 @@ bullet_t
 characters(void) {
     return head;
 }
+
+//Plane_struct *
+struct Plane_struct
+get_plane(void){
+    return plane;
+}
+
+/* 创建飞机 */
+void
+create_plane(void){
+    //Plane plane;
+    //plane = new Plane_struct;
+    plane.x = 150;
+    plane.y = 150;
+}
+
 
 /* 在屏幕上创建一个新的字母 */
 /*void
@@ -105,8 +123,8 @@ create_new_bullet(int x_p, int y_p) {
         head->vx = v * (head->x_p - head->x) / (head->y_p - head->y);
         head->vy = v;
     }
-    assert(0 <= head->x && head->x < SCR_HEIGHT);
-    assert(0 <= head->y && head->y < SCR_WIDTH);
+    assert(0 <= head->x && head->x   <= SCR_HEIGHT);
+    assert(0 <= head->y && head->y   <= SCR_WIDTH);
     
 	//head->x = 0;
 	//head->y = rand() % (SCR_WIDTH / 8 - 2) * 8 + 8;
@@ -116,8 +134,6 @@ create_new_bullet(int x_p, int y_p) {
 
     
 }
-
-
 
 /* 逻辑时钟前进1单位 */
 /*void
@@ -145,7 +161,7 @@ update_bullet_pos(void) {
 		//it->x += it->v; // 根据速度更新位置 //
         it->x += it->vx;
         it->y += it->vy;
-		if (it->x < 0 || it->x + 7.9 > SCR_HEIGHT) {
+		if (it->x < 0 || it->x + 1 >= SCR_HEIGHT || it->y < 0 || it->y + 1 >= SCR_WIDTH) {
 			if (it->x < 0) hit ++; // 从上部飞出屏幕 //
 			else miss ++; // 从下部飞出屏幕 //
 			bullet_remove(it);
@@ -200,6 +216,8 @@ update_keypress(void) {
 	if (target != NULL) {
 		release_key(target->text);
 		target->v = -3; // 速度改为向上 //
+        target->vx = -3;
+        target->vy = 0;
 		return TRUE;
 	}
 	enable_interrupt();

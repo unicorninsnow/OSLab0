@@ -4,6 +4,8 @@
 #include "common.h"
 #include "adt/linklist.h"
 
+//#typedef (Plane_struct *) Plane;
+
 /* 中断时调用的函数 */
 void timer_event(void);
 void keyboard_event(int scan_code);
@@ -30,12 +32,25 @@ LINKLIST_DEF(bullet)
     float vx, vy;
 LINKLIST_DEF_FI(bullet)
 
+/* 定义plane结构 */
+struct Plane_struct{
+    float x, y;
+    float v;
+};
+/*LINKLIST_DEF(Plane)
+    float x, y; //用于生成每个子弹的初始位置 和 表示所在的当前位置
+    float v;
+LINKLIST_DEF_FI(Plane)
+*/
+
+
 
 
 /* 主循环 */
 void main_loop(void);
 
 /* 游戏逻辑相关 */
+void create_plane();
 //void create_new_letter(void);
 void create_new_bullet(int x_p, int y_p);
 
@@ -49,6 +64,7 @@ int get_fps(void);
 void set_fps(int fps);
 //fly_t characters(void);
 bullet_t characters(void);
+struct Plane_struct get_plane(void);
 
 
 void redraw_screen(void);

@@ -16,6 +16,12 @@ redraw_screen() {
 	
 	prepare_buffer(); /* 准备缓冲区 */
 
+
+    /* 绘制飞机 */
+    struct Plane_struct plane_now = get_plane();
+    draw_plane(plane_now.x,plane_now.y,14);
+
+
 	/* 绘制每个字符 */
 	/*for (it = characters(); it != NULL; it = it->_next) {
 		static char buf[2];
@@ -31,7 +37,7 @@ redraw_screen() {
         draw_one_bullet( it->x, it->y, 12);
 	}
 
-
+       
 
 	/* 绘制命中数、miss数、最后一次按键扫描码和fps */
 	draw_string(itoa(last_key_code()), SCR_HEIGHT - 8, 0, 48);

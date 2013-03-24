@@ -4,7 +4,7 @@
 #include "device/timer.h"
 
 #define FPS 30
-#define CHARACTER_PER_SECOND 5
+#define CHARACTER_PER_SECOND 10
 #define UPDATE_PER_SECOND 100
 
 volatile int tick = 0;
@@ -44,6 +44,8 @@ main_loop(void) {
 	int now = 0, target;
 	int num_draw = 0;
 	bool redraw;
+
+    create_plane();
 
 	while (TRUE) {
 		wait_for_interrupt();
