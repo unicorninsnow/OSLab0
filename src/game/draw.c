@@ -10,9 +10,8 @@
 */
 void
 redraw_screen() {
-	//fly_t it;
     bullet_t it;
-	const char *hit;
+	const char *life;
 //  const char *bullet_num;
     const char *sec_int;
     const char *sec_fra;
@@ -25,23 +24,16 @@ redraw_screen() {
     draw_plane(plane_now.x,plane_now.y,14);
 
 
-	/* 绘制每个字符 */
-	/*for (it = characters(); it != NULL; it = it->_next) {
-		static char buf[2];
-		buf[0] = it->text + 'A'; buf[1] = 0;
-		draw_string(buf, it->x, it->y, 12);
-	}*/
-    
 	/* 绘制每个子弹 */
 	for (it = characters(); it != NULL; it = it->_next) {
         draw_one_bullet( it->x, it->y, 12);
 	}
-       
 
 	/* 绘制被击中数、坚持的时间、最后一次按键扫描码和fps */
 	draw_string(itoa(last_key_code()), SCR_HEIGHT - 8, 0, 48);
-	hit = itoa(get_hit());
-	draw_string(hit, 0, SCR_WIDTH - strlen(hit) * 8, 10);
+	life = itoa(get_life());
+    draw_string("Life:", 0, SCR_WIDTH - strlen(life) * 8 - 5 * 8, 12);
+	draw_string(life, 0, SCR_WIDTH - strlen(life) * 8, 12);
 
     //bullet_num = itoa(get_bullet_num()); 
     //draw_string(bullet_num, SCR_HEIGHT - 8, SCR_WIDTH - strlen(bullet_num) * 8, 10);
@@ -58,3 +50,17 @@ redraw_screen() {
 	display_buffer(); /* 绘制缓冲区 */
 }
 
+/* 死亡时出现的画面 */
+void 
+gameover_screen(void) {
+    draw_string("GAME OVER", (SCR_HEIGHT) / 2 - 16, (SCR_WIDTH ) / 2 - 5 * 8, 12);
+    draw_string("You  hold", (SCR_HEIGHT) / 2 - 8, (SCR_WIDTH) / 2 - 5 * 8, 15);
+    const char *sec_int;
+    const char *sec_fra;
+	sec_fra = itoa(get_tick() % 1000);
+    draw_string(sec_fra, SCR_HEIGHT / 2, SCR_WIDTH / 2 ,14);
+    sec_int = itoa(get_tick()/1000); 
+    draw_string(".", SCR_HEIGHT / 2, SCR_WIDTH / 2 - 8 ,14);
+    draw_string(sec_int, SCR_HEIGHT / 2, SCR_WIDTH / 2 - 8 - strlen(sec_int) * 8,14);
+
+}

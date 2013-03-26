@@ -14,5 +14,5 @@ game_init(void) {
 
 	enable_interrupt();
 	main_loop();
-	assert(0); /* main_loop是死循环，永远无法返回这里 */
+	//assert(0); /* main_loop是死循环，永远无法返回这里 */
 }

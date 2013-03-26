@@ -8,53 +8,38 @@
 	22, 47, 17, 45, 21, 44
 };*/
 
-/* a-z对应的键盘扫描码 */
-//将前四个换成上下左右 分别是72,80,75,77
-/*static int letter_code[] = {
-	72, 80, 75, 77, 18, 33, 34, 35, 23, 36,
-	37, 38, 50, 49, 24, 25, 16, 19, 31, 20,
-	22, 47, 17, 45, 21, 44
-};*/
 
 /* 上下左右对应的键盘扫描码 */
 static int direct_key_code[] = {
-    72,80,75,77,200,208,203,205,17,31,30,32,145,159,158,160
+    72,80,75,77,        //up down left right 按下
+    200,208,203,205,    //up down left right 松开
+    17,31,30,32,        //w s a d 按下
+    145,159,158,160     //w s a d 松开
 };
 
 
 /* 对应键按下的标志位 */
 static bool direct_key_pressed[4];
-//static bool letter_pressed[26];
 
-/*void
-press_key(int scan_code) {
-	int i;
-	for (i = 0; i < 26; i ++) {
-		if (letter_code[i] == scan_code) {
-			letter_pressed[i] = TRUE;
-		}
-	}
-}*/
 void
 press_key(int scan_code) {
 	int i;
-	for (i = 0; i < 4; i ++) {
+	for (i = 0; i < 4; i ++) {                      //处理up down left right 按下
 		if (direct_key_code[i] == scan_code) {
 			direct_key_pressed[i] = TRUE;
 		}
 	}
-    //assert(direct_key_pressed[0] == FALSE);
-    for (i = 4; i < 8; i++){
+    for (i = 4; i < 8; i++){                        //处理up down left right 松开
         if (direct_key_code[i] == scan_code) {
 			direct_key_pressed[i - 4] = FALSE;
 		}
     }
-    for (i = 8; i < 12; i++){
+    for (i = 8; i < 12; i++){                       //处理w s a d 按下
         if (direct_key_code[i] == scan_code) {
 			direct_key_pressed[i - 8] = TRUE;
 		}
     }
-    for (i = 12; i < 16; i++){
+    for (i = 12; i < 16; i++){                      //处理w s a d 松开
         if (direct_key_code[i] == scan_code) {
 			direct_key_pressed[i - 12] = FALSE;
 		}
@@ -64,26 +49,15 @@ press_key(int scan_code) {
 }
 
 
-/*void
-release_key(int index) {
-	assert(0 <= index && index < 26);
-	letter_pressed[index] = FALSE;
-}*/
 void
 release_key(int index) {
 	assert(0 <= index && index < 4);
 	direct_key_pressed[index] = FALSE;
 }
 
-/*bool
-query_key(int index) {
-	assert(0 <= index && index < 26);
-	return letter_pressed[index];
-}*/
 bool
 query_key(int index) {
 	assert(0 <= index && index < 4);
-    //assert(direct_key_pressed[0] == FALSE);
 	return direct_key_pressed[index];
 }
 

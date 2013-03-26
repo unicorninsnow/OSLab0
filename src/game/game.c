@@ -48,10 +48,11 @@ main_loop(void) {
 	int now = 0, target;
 	int num_draw = 0;
 	bool redraw;
+    bool is_gameover = FALSE;
 
     create_plane();
 
-	while (TRUE) {
+	while (!is_gameover) {
 		wait_for_interrupt();
 		disable_interrupt();
 		if (now == tick) {
@@ -72,15 +73,13 @@ main_loop(void) {
 		while (now < target) { 
 			/* 每隔一定时间产生一个新的字符 */
 			if (now % (HZ / CHARACTER_PER_SECOND) == 0) {
-				//create_new_letter();
                 create_new_bullet(get_plane_x(),get_plane_y());
 			} 
 			/* 每隔一定时间更新屏幕上字符的位置 */
 			if (now % (HZ / UPDATE_PER_SECOND) == 0) {
-				//update_letter_pos();
                 update_bullet_pos();
                 update_plane_pos();
-                Is_hit();
+                if(Is_hit() == 0) is_gameover = TRUE;
 			}
 			/* 每隔一定时间需要刷新屏幕。注意到这里实现了“跳帧”的机制：假设
 			 *   HZ = 1000, FPS = 100, now = 10, target = 1000
@@ -104,4 +103,6 @@ main_loop(void) {
 			redraw_screen();
 		}
 	}
+    redraw_screen();
+    gameover_screen();
 }

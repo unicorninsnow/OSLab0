@@ -89,27 +89,12 @@ draw_string(const char *str, int x, int y, int color) {
 
 /*static inline*/ void
 draw_one_bullet(int x, int y, int color) {
-	int i, j;
-	//assert((ch & 0x80) == 0);
-	//char *p = font8x8_basic[(int)ch];
+	if (x > HEIGHT_BULLET) x = HEIGHT_BULLET;
+    if (y > WIDTH_BULLET)  y = WIDTH_BULLET;
+    int i, j;
 	for (i = 0; i < bullet_size; i ++) 
 		for (j = 0; j < bullet_size; j ++) 
-			//if ((p[i] >> j) & 1)
-				draw_pixel(x + i, y + j, color);
-    
-    //draw_pixel(x,y,color);
-}
-
-void
-draw_bullets(const char *str, int x, int y, int color) {
-	while (*str) {
-		draw_one_bullet( x, y, color);
-		if (y + 3 >= SCR_WIDTH) {
-			x += 3; y = 0;
-		} else {
-			y += 3;
-		}
-	}
+			draw_pixel(x + i, y + j, color);
 }
 
 void 
@@ -117,7 +102,7 @@ draw_plane(int x, int y, int color)
 {
     assert(0 <= x && x < SCR_HEIGHT - plane_size);
     assert(0 <= y && y < SCR_WIDTH - plane_size);
-    char *plane_video = plane5x5_basic;
+    char *plane_video = plane8x8_basic;
     int i, j;
     for (i = 0; i < plane_size; ++i)
         for (j = 0; j <plane_size ; ++j)

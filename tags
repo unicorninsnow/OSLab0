@@ -93,7 +93,6 @@ disable_interrupt	include/x86/cpu.h	/^disable_interrupt(void) {$/;"	f
 display_buffer	src/device/video.c	/^display_buffer(void) {$/;"	f
 do_keyboard	src/irq/irq_handle.c	/^static void (*do_keyboard)(int);$/;"	v	file:
 do_timer	src/irq/irq_handle.c	/^static void (*do_timer)(void);$/;"	v	file:
-draw_bullets	src/device/video.c	/^draw_bullets(const char *str, int x, int y, int color) {$/;"	f
 draw_character	src/device/video.c	/^draw_character(char ch, int x, int y, int color) {$/;"	f	file:
 draw_one_bullet	src/device/video.c	/^draw_one_bullet(int x, int y, int color) {$/;"	f
 draw_pixel	include/device/video.h	/^draw_pixel(int x, int y, int color) {$/;"	f
@@ -115,18 +114,18 @@ flags	boot/boot.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader
 flags	boot/boot.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader
 font8x8_basic	src/device/font.c	/^char font8x8_basic[128][8] = {$/;"	v
 game_init	src/main.c	/^game_init(void) {$/;"	f
+gameover_screen	src/game/draw.c	/^gameover_screen(void) {$/;"	f
 gdt	boot/start.S	/^gdt:$/;"	l
 gdtdesc	boot/start.S	/^gdtdesc:                           # GDT描述符$/;"	l
 get_bullet_num	src/game/effect.c	/^get_bullet_num(void) {$/;"	f
 get_fps	src/game/game.c	/^get_fps() {$/;"	f
-get_hit	src/game/effect.c	/^get_hit(void) {$/;"	f
+get_life	src/game/effect.c	/^get_life(void) {$/;"	f
 get_miss	src/game/effect.c	/^get_miss(void) {$/;"	f
 get_plane	src/game/effect.c	/^get_plane(void){$/;"	f
 get_plane_x	src/game/effect.c	/^int get_plane_x(void){$/;"	f
 get_plane_y	src/game/effect.c	/^int get_plane_y(void){$/;"	f
 get_tick	src/game/game.c	/^get_tick(void){$/;"	f
 head	src/game/effect.c	/^static bullet_t head = NULL;$/;"	v	file:
-hit	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
 idt	src/irq/idt.c	/^struct GateDescriptor idt[NR_IRQ];$/;"	v	typeref:struct:GateDescriptor
 in_byte	boot/boot.h	/^in_byte(short port) {$/;"	f
 in_byte	include/x86/io.h	/^in_byte(uint16_t port) {$/;"	f
@@ -143,13 +142,14 @@ itoa	src/lib/string.c	/^char *itoa(int a) {$/;"	f
 key_code	src/game/keyboard.c	/^static volatile int key_code = 0;$/;"	v	file:
 keyboard_event	src/game/keyboard.c	/^keyboard_event(int code) {  $/;"	f
 last_key_code	src/game/keyboard.c	/^int last_key_code(void) {$/;"	f
+life	src/game/effect.c	/^static int  life = 3;$/;"	v	file:
 machine	boot/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
 magic	boot/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
 main_loop	src/game/game.c	/^main_loop(void) {$/;"	f
 memcpy	src/lib/string.c	/^void memcpy(void *dest, const void *src, size_t size) {$/;"	f
 memset	src/lib/string.c	/^void memset(void *dest, int data, size_t size) {$/;"	f
 memsz	boot/boot.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader
-miss	src/game/effect.c	/^static int hit = 0, miss = 0;$/;"	v	file:
+miss	src/game/effect.c	/^static int  miss = 0;$/;"	v	file:
 off	boot/boot.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader
 offset_15_0	include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	m	struct:GateDescriptor
 offset_31_16	include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	m	struct:GateDescriptor
@@ -161,7 +161,7 @@ phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
 phnum	boot/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
 phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
 plane	src/game/effect.c	/^static struct Plane_struct plane;$/;"	v	typeref:struct:Plane_struct	file:
-plane5x5_basic	src/device/font.c	/^char plane5x5_basic[plane_size] = {0x10,0x38,0x7C,0x82,0x10,0x10,0x10,0x38};$/;"	v
+plane8x8_basic	src/device/font.c	/^char plane8x8_basic[plane_size] = {0x10,0x38,0x7C,0x82,0x10,0x10,0x10,0x38};$/;"	v
 plane_size	include/device/font.h	3;"	d
 prepare_buffer	src/device/video.c	/^prepare_buffer(void) {$/;"	f
 present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor
@@ -190,7 +190,6 @@ size_t	include/types.h	/^typedef int32_t size_t;$/;"	t
 srand	src/lib/random.c	/^srand(int s) {$/;"	f
 start	boot/start.S	/^start:$/;"	l
 start32	boot/start.S	/^start32:$/;"	l
-strcat	src/lib/string.c	/^char *strcat(char *str1, char *str2) {$/;"	f
 strlen	src/lib/string.c	/^size_t strlen(const char *str) {$/;"	f
 system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor
 text	include/game.h	/^	int text;$/;"	v
@@ -205,7 +204,7 @@ uint8_t	include/types.h	/^typedef unsigned char  uint8_t;$/;"	t
 update_bullet_pos	src/game/effect.c	/^update_bullet_pos(void) {$/;"	f
 update_plane_pos	src/game/effect.c	/^update_plane_pos(void) {$/;"	f
 v	include/game.h	/^	float v;$/;"	v
-v	include/game.h	/^    float v;$/;"	m	struct:Plane_struct
+v	include/game.h	/^    float v;\/\/表示飞机的速度 tip：表示上下左右速度 斜向速度为叠加后的$/;"	m	struct:Plane_struct
 vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
 vbuf	src/device/video.c	/^static uint8_t vbuf[SCR_SIZE];$/;"	v	file:
 version	boot/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader
@@ -216,9 +215,9 @@ vy	include/game.h	/^    float vx, vy;$/;"	v
 wait_for_interrupt	include/x86/cpu.h	/^wait_for_interrupt() {$/;"	f
 waitdisk	boot/main.c	/^waitdisk(void) {$/;"	f
 x	include/game.h	/^	float x, y; \/\/用于生成每个子弹的初始位置 和 表示所在的当前位置$/;"	v
-x	include/game.h	/^    float x, y;$/;"	m	struct:Plane_struct
+x	include/game.h	/^    float x, y;\/\/用于生成飞机的初始位置 和 表示所在的当前位置$/;"	m	struct:Plane_struct
 x_p	include/game.h	/^    float x_p, y_p; \/\/用于表示生成新子弹时飞机所在的位置，用于确定子弹的方向$/;"	v
 xxx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
 y	include/game.h	/^	float x, y; \/\/用于生成每个子弹的初始位置 和 表示所在的当前位置$/;"	v
-y	include/game.h	/^    float x, y;$/;"	m	struct:Plane_struct
+y	include/game.h	/^    float x, y;\/\/用于生成飞机的初始位置 和 表示所在的当前位置$/;"	m	struct:Plane_struct
 y_p	include/game.h	/^    float x_p, y_p; \/\/用于表示生成新子弹时飞机所在的位置，用于确定子弹的方向$/;"	v

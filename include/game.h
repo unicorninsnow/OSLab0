@@ -4,7 +4,6 @@
 #include "common.h"
 #include "adt/linklist.h"
 
-//static int bullet_num;
 
 /* 中断时调用的函数 */
 void timer_event(void);
@@ -16,14 +15,7 @@ void release_key(int ch);
 bool query_key(int ch);
 int last_key_code(void);
 
-/* 定义fly_t链表 */
-/*LINKLIST_DEF(fly)
-	float x, y;
-	int text;
-	float v;
-LINKLIST_DEF_FI(fly)
-*/
-/* 定义bullet子弹链表 */    //为什么要_t
+/* 定义bullet子弹链表 */  
 LINKLIST_DEF(bullet)
 	float x, y; //用于生成每个子弹的初始位置 和 表示所在的当前位置
 	int text;
@@ -39,29 +31,24 @@ struct Plane_struct{
 };
 
 
-
-
 /* 主循环 */
 void main_loop(void);
 
 /* 游戏逻辑相关 */
 void create_plane();
-//void create_new_letter(void);
 void create_new_bullet(int x_p, int y_p);
 
-//void update_letter_pos(void);
 void update_bullet_pos(void);
 //bool update_keypress(void);
 void update_plane_pos(void);
-bool Is_hit(void);
+int Is_hit(void);
 
-int get_hit(void);
+int get_life(void);
 int get_miss(void);
 int get_bullet_num(void);
 int get_fps(void);
 int get_tick(void);
 void set_fps(int fps);
-//fly_t characters(void);
 bullet_t characters(void);
 struct Plane_struct get_plane(void);
 int get_plane_x(void);
@@ -69,6 +56,7 @@ int get_plane_y(void);
 
 
 void redraw_screen(void);
+void gameover_screen(void);
 
 /* 随机数 */
 int rand(void);

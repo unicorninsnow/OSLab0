@@ -29,7 +29,7 @@ size_t strlen(const char *str) {
 	return len;
 }
 
-char *strcat(const char *str1, const char *str2) {
+/*char *strcat(const char *str1, const char *str2) {
     //有问题  不知道如何解决
     //int l1 = strlen(str1);
     //int l2 = strlen(str2);
@@ -45,5 +45,5 @@ char *strcat(const char *str1, const char *str2) {
     //for(i = 0; i < l2; i++)  *p++ = str2[i];
     *p = '\0';
     return buf;//(p - (l1 * sizeof(char)) - (l2 * sizeof(char)));
-}
+}*/
 
