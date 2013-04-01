@@ -7,14 +7,25 @@
 
 #define SCR_WIDTH  320
 #define SCR_HEIGHT 200
-#define WIDTH_BULLET ((SCR_WIDTH) - (bullet_size))      /* 表示子弹所在的横坐标的最大值 0<= y <= WIDTH_BULLET */ 
-#define HEIGHT_BULLET ((SCR_HEIGHT) - (bullet_size))    /* 表示子弹所在的纵坐标的最大值 0<= x <= HEIGHT_BULLET */ 
-#define WIDTH_PLANE ((SCR_WIDTH) - (plane_size))        /* 表示飞机所在的横坐标的最大值 0<= y <= WIDTH_PLANE */
-#define HEIGHT_PLANE ((SCR_HEIGHT) - (plane_size))      /* 表示飞机所在的纵坐标的最大值 0<= x <= HEIGHT_PLANE */
+
+/* 表示子弹所在的横坐标的最大值 0<= y <= WIDTH_BULLET */ 
+#define WIDTH_BULLET ((SCR_WIDTH) - (bullet_size))
+
+/* 表示子弹所在的纵坐标的最大值 0<= x <= HEIGHT_BULLET */ 
+#define HEIGHT_BULLET ((SCR_HEIGHT) - (bullet_size))
+
+/* 表示飞机所在的横坐标的最大值 0<= y <= WIDTH_PLANE */
+#define WIDTH_PLANE ((SCR_WIDTH) - (plane_size))
+
+/* 表示飞机所在的纵坐标的最大值 0<= x <= HEIGHT_PLANE */
+#define HEIGHT_PLANE ((SCR_HEIGHT) - (plane_size))
+
 #define SCR_SIZE ((SCR_WIDTH) * (SCR_HEIGHT))
 #define VMEM_ADDR  ((uint8_t*)0xA0000)
-#define bullet_size 2                                   /* 表示子弹的尺寸 */
-//#define plane_size 8 
+
+/* 表示子弹的尺寸 */
+#define bullet_size 2 
+
 
 extern uint8_t *vmem;
 

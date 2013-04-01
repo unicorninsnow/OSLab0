@@ -9,7 +9,7 @@
 };*/
 
 
-/* 上下左右对应的键盘扫描码 */
+/* 上下左右 W S A D 对应的键盘扫描码 */
 static int direct_key_code[] = {
     72,80,75,77,        //up down left right 按下
     200,208,203,205,    //up down left right 松开

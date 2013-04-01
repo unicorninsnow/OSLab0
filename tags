@@ -6,10 +6,10 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ASFLAGS	Makefile	/^ASFLAGS = -m32 -MD$/;"	m
 BLUE_SCREEN_TEXT	src/lib/abort.c	14;"	d	file:
+BULLET_PER_SECOND	src/game/game.c	7;"	d	file:
 CC	Makefile	/^CC = gcc$/;"	m
 CFILES	Makefile	/^CFILES = $(shell find src\/ -name "*.c")$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -m32 -static -MD -std=gnu89 -ggdb \\$/;"	m
-CHARACTER_PER_SECOND	src/game/game.c	7;"	d	file:
 DPL_KERNEL	include/x86/memory.h	4;"	d
 DPL_USER	include/x86/memory.h	5;"	d
 ELFHeader	boot/boot.h	/^struct ELFHeader {$/;"	s
@@ -18,8 +18,8 @@ FPS	src/game/game.c	6;"	d	file:
 FREQ_8253	src/device/timer.c	7;"	d	file:
 GDT_ENTRY	boot/asm.h	2;"	d
 GateDescriptor	include/x86/memory.h	/^struct GateDescriptor {$/;"	s
-HEIGHT_BULLET	include/device/video.h	11;"	d
-HEIGHT_PLANE	include/device/video.h	13;"	d
+HEIGHT_BULLET	include/device/video.h	15;"	d
+HEIGHT_PLANE	include/device/video.h	21;"	d
 HZ	include/device/timer.h	4;"	d
 INTERLACE	src/device/video.c	15;"	d	file:
 INTERRUPT_GATE_32	src/irq/idt.c	3;"	d	file:
@@ -42,7 +42,7 @@ Plane_struct	include/game.h	/^struct Plane_struct{$/;"	s
 ProgramHeader	boot/boot.h	/^struct ProgramHeader {$/;"	s
 QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
 SCR_HEIGHT	include/device/video.h	9;"	d
-SCR_SIZE	include/device/video.h	14;"	d
+SCR_SIZE	include/device/video.h	23;"	d
 SCR_WIDTH	include/device/video.h	8;"	d
 SECTSIZE	boot/main.c	11;"	d	file:
 SEG_ASM	boot/asm.h	9;"	d
@@ -56,9 +56,9 @@ TRAP_GATE_32	src/irq/idt.c	4;"	d	file:
 TRUE	include/const.h	4;"	d
 TrapFrame	include/x86/memory.h	/^struct TrapFrame {$/;"	s
 UPDATE_PER_SECOND	src/game/game.c	8;"	d	file:
-VMEM_ADDR	include/device/video.h	15;"	d
-WIDTH_BULLET	include/device/video.h	10;"	d
-WIDTH_PLANE	include/device/video.h	12;"	d
+VMEM_ADDR	include/device/video.h	24;"	d
+WIDTH_BULLET	include/device/video.h	12;"	d
+WIDTH_PLANE	include/device/video.h	18;"	d
 __ASSERT_H__	include/assert.h	2;"	d
 __COMMON_H__	include/common.h	2;"	d
 __CONST_H__	include/const.h	2;"	d
@@ -83,7 +83,7 @@ blue_screen	src/lib/abort.c	/^blue_screen(const char *file, int line) {$/;"	f	fi
 bool	include/types.h	/^typedef int bool;$/;"	t
 bootmain	boot/main.c	/^bootmain(void) {$/;"	f
 bullet_num	src/game/effect.c	/^static int bullet_num = 0;$/;"	v	file:
-bullet_size	include/device/video.h	16;"	d
+bullet_size	include/device/video.h	27;"	d
 characters	src/game/effect.c	/^characters(void) {$/;"	f
 create_new_bullet	src/game/effect.c	/^create_new_bullet(int x_p, int y_p) {$/;"	f
 create_plane	src/game/effect.c	/^create_plane(void){$/;"	f
@@ -192,7 +192,6 @@ start	boot/start.S	/^start:$/;"	l
 start32	boot/start.S	/^start32:$/;"	l
 strlen	src/lib/string.c	/^size_t strlen(const char *str) {$/;"	f
 system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor
-text	include/game.h	/^	int text;$/;"	v
 tick	src/game/game.c	/^volatile int tick = 0;$/;"	v
 timer_event	src/game/game.c	/^timer_event(void) {$/;"	f
 type	boot/boot.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader
@@ -204,7 +203,7 @@ uint8_t	include/types.h	/^typedef unsigned char  uint8_t;$/;"	t
 update_bullet_pos	src/game/effect.c	/^update_bullet_pos(void) {$/;"	f
 update_plane_pos	src/game/effect.c	/^update_plane_pos(void) {$/;"	f
 v	include/game.h	/^	float v;$/;"	v
-v	include/game.h	/^    float v;\/\/表示飞机的速度 tip：表示上下左右速度 斜向速度为叠加后的$/;"	m	struct:Plane_struct
+v	include/game.h	/^    float v;\/\/表示飞机的速度 Tip：表示上下左右速度 斜向速度为叠加后的$/;"	m	struct:Plane_struct
 vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
 vbuf	src/device/video.c	/^static uint8_t vbuf[SCR_SIZE];$/;"	v	file:
 version	boot/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader

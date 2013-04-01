@@ -12,7 +12,6 @@ void
 redraw_screen() {
     bullet_t it;
 	const char *life;
-//  const char *bullet_num;
     const char *sec_int;
     const char *sec_fra;
 	
@@ -29,14 +28,12 @@ redraw_screen() {
         draw_one_bullet( it->x, it->y, 12);
 	}
 
-	/* 绘制被击中数、坚持的时间、最后一次按键扫描码和fps */
+	/* 绘制剩余的生命数、坚持的时间、最后一次按键扫描码和fps */
 	draw_string(itoa(last_key_code()), SCR_HEIGHT - 8, 0, 48);
 	life = itoa(get_life());
     draw_string("Life:", 0, SCR_WIDTH - strlen(life) * 8 - 5 * 8, 40);
 	draw_string(life, 0, SCR_WIDTH - strlen(life) * 8, 40);
 
-    //bullet_num = itoa(get_bullet_num()); 
-    //draw_string(bullet_num, SCR_HEIGHT - 8, SCR_WIDTH - strlen(bullet_num) * 8, 10);
 
     sec_fra = itoa(get_tick() % 1000);
     draw_string(sec_fra, SCR_HEIGHT - 8, SCR_WIDTH - strlen(sec_fra) * 8, 10);
@@ -53,9 +50,6 @@ redraw_screen() {
 /* 死亡时出现的画面 */
 void 
 gameover_screen(void) {
-    draw_string("GAME OVER", (SCR_HEIGHT) / 2 - 24, (SCR_WIDTH ) / 2 - 5 * 8, 40);
-    draw_string("REST IN PEACE! WARRIOR!", (SCR_HEIGHT) / 2 - 16, (SCR_WIDTH ) / 2 - 12 * 8, 13);
-    draw_string("You  hold", (SCR_HEIGHT) / 2 - 8, (SCR_WIDTH) / 2 - 5 * 8, 10);
     redraw_screen();
     const char *sec_int;
     const char *sec_fra;
@@ -64,5 +58,8 @@ gameover_screen(void) {
     sec_int = itoa(get_tick()/1000); 
     draw_string(".", SCR_HEIGHT / 2, SCR_WIDTH / 2 - 8 * 2 ,14);
     draw_string(sec_int, SCR_HEIGHT / 2, SCR_WIDTH / 2 - 8 * 2  - strlen(sec_int) * 8,14);
-
+    draw_string("GAME OVER", (SCR_HEIGHT) / 2 - 24, (SCR_WIDTH ) / 2 - 5 * 8, 40);
+    draw_string("REST IN PEACE! WARRIOR!", (SCR_HEIGHT) / 2 - 16, (SCR_WIDTH ) / 2 - 12 * 8, 13);
+    draw_string("You  hold", (SCR_HEIGHT) / 2 - 8, (SCR_WIDTH) / 2 - 5 * 8, 10);
+   
 }

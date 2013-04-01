@@ -87,7 +87,7 @@ draw_string(const char *str, int x, int y, int color) {
 }
 
 
-/*static inline*/ void
+void
 draw_one_bullet(int x, int y, int color) {
 	if (x > HEIGHT_BULLET) x = HEIGHT_BULLET;
     if (y > WIDTH_BULLET)  y = WIDTH_BULLET;

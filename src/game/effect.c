@@ -103,10 +103,6 @@ create_new_bullet(int x_p, int y_p) {
     assert(0 <= head->y && head->y   <= WIDTH_BULLET);
     
 	head->v = (rand() % 1000 / 1000.0 + 1) / 2.0;
-    //head->text = 0;//rand() % 26;   //需不需要？？？？？
-	//release_key(head->text); // 清除过往的按键 // //为什么要清除？？？？？？
-
-    
 }
 
 /* 逻辑时钟前进1单位 */
@@ -115,7 +111,6 @@ update_bullet_pos(void) {
 	bullet_t it;
 	for (it = head; it != NULL; ) {
 		bullet_t next = it->_next;
-//        bool is_bullet_in_area = (0 <= (it->x + it->vx)) && ((it->x + it->vy) <= WIDT)
         it->x += it->vx;
         it->y += it->vy;
 		if (it->x < 0 || it->x > HEIGHT_BULLET || it->y < 0 || it->y > WIDTH_BULLET) {
@@ -133,9 +128,9 @@ update_bullet_pos(void) {
 int 
 Is_hit(void) {
 	bullet_t it;
-
-	// 寻找相应键已被按下、最底部且未被击中的字符 //
+	// 逐个子弹进行查看，比较判断其有没有击中飞机 //
 	for (it = head; it != NULL; it = it->_next) {
+        /* 此处以子弹和飞机所在的8*8像素区 有像素点重合为击中条件 */
 		if (((it->x + bullet_size) > get_plane_x()) && (it->x < get_plane_x() + plane_size)
                 && ((it->y + bullet_size) > get_plane_y()) && (it->y < get_plane_y() + plane_size)) {
 			--life;
@@ -144,13 +139,10 @@ Is_hit(void) {
 			bullet_free(it);
             if(bullet_num > 0) --bullet_num;
 			if (it == head) head = next; // 更新链表 //
-           // break;
-            //return life;
-            // assert(life > 0);
+            // assert(life >= 0);
             if (life <= 0) return 0;
 		}
 	}
-
 	return life;
 }
 

@@ -52,6 +52,7 @@ main_loop(void) {
 
     create_plane();
 
+    /* 游戏的有效执行循环以is_gameover为结束标志 */
 	while (!is_gameover) {
 		wait_for_interrupt();
 		disable_interrupt();
@@ -64,23 +65,22 @@ main_loop(void) {
 		enable_interrupt();
 
 		redraw = FALSE;
-//		while (Is_hit())//这里是什么意思？？？？？？？？？？？？？？？
-//			;
 
 		/* 依次模拟已经错过的时钟中断。一次主循环如果执行时间长，期间可能到来多次时钟中断，
 		 * 从而主循环中维护的时钟可能与实际时钟相差较多。为了维持游戏的正常运行，必须补上
 		 * 期间错过的每一帧游戏逻辑。 */
 		while (now < target) { 
-			/* 每隔一定时间产生一个新的字符 */
+			/* 每隔一定时间产生一个新的子弹 */
 			if (now % (HZ / BULLET_PER_SECOND) == 0) {
                 create_new_bullet(get_plane_x(),get_plane_y());
 			} 
-			/* 每隔一定时间更新屏幕上字符的位置 */
+			/* 每隔一定时间更新屏幕上子弹和飞机的位置 */
 			if (now % (HZ / UPDATE_PER_SECOND) == 0) {
                 update_bullet_pos();
                 update_plane_pos();
-                if(Is_hit() == 0) is_gameover = TRUE;
-			}
+            }
+            if(Is_hit() == 0) is_gameover = TRUE;
+			
 			/* 每隔一定时间需要刷新屏幕。注意到这里实现了“跳帧”的机制：假设
 			 *   HZ = 1000, FPS = 100, now = 10, target = 1000
 			 * 即我们要模拟990个时钟中断之间发生的事件，其中包含了9次屏幕更新，
@@ -103,5 +103,7 @@ main_loop(void) {
 			redraw_screen();
 		}
 	}
+
+    /* 游戏GameOver后打印GameOver及相关信息 */
     gameover_screen();
 }
