@@ -4,7 +4,7 @@
 #include "device/timer.h"
 
 #define FPS 30
-#define CHARACTER_PER_SECOND 5
+#define BULLET_PER_SECOND 5
 #define UPDATE_PER_SECOND 100
 
 volatile int tick = 0;
@@ -72,7 +72,7 @@ main_loop(void) {
 		 * 期间错过的每一帧游戏逻辑。 */
 		while (now < target) { 
 			/* 每隔一定时间产生一个新的字符 */
-			if (now % (HZ / CHARACTER_PER_SECOND) == 0) {
+			if (now % (HZ / BULLET_PER_SECOND) == 0) {
                 create_new_bullet(get_plane_x(),get_plane_y());
 			} 
 			/* 每隔一定时间更新屏幕上字符的位置 */
@@ -103,6 +103,5 @@ main_loop(void) {
 			redraw_screen();
 		}
 	}
-    redraw_screen();
     gameover_screen();
 }
